@@ -1,0 +1,306 @@
+FIXSAVE v1.75
+=============
+
+	Fixsave is a utility designed to fix problems with people's save
+games. It repairs a multitude of problems that Daggerfall creates in your
+game. The most common of these are games that are unable to load due to
+invalid quest objects, invalid quest links, duplicate map ids, and invalid
+quest map ids. It will also repair various quests to allow you to continue
+in the game.
+
+NOTE: Fixsave has a few changes done to it since the 1.07.213 patch.
+Please review the documentation below to see how these changes affect
+the operation of the program.
+
+UPDATE INFORMATION FOR v1.75:
+
+	An increasing number of people have reported that their lycanthrope
+spell has dissapeared. If you are suffering from this problem, Fixsave now
+places another copy of the spell into your spellbook so that you can switch
+forms and continue in your adventures.
+
+UPDATE INFORMATION FOR v1.74:
+
+	Some internal save game repairs being done by the Daggerfall v1.07
+patch has caused some save games to no longer be loadable. When this happens,
+the error reported by the game is "Invalid character data." Fixsave now
+repairs the save game so that it can once again be loaded by Daggerfall.
+
+
+UPDATE INFORMATION FOR v1.73:
+
+	If you are having problems giving quest items to a person, fixsave
+now has some additional repairs for this dilema. If during repairs, fixsave
+reports that it has repaired the item's quest link, the person should now
+acknowledge the item and talk to you.
+
+UPDATE INFORMATION FOR v1.72:
+
+	Fixsave now checks the status of the file savetree.dat. This
+is an important file for your save game. If it is missing or damaged,
+fixsave is not able to repair your game. If it finds a problem with
+your savetree.dat file, you are notified of the situation and given
+the option to continue with the repairs.
+
+UPDATE INFORMATION FOR v1.71:
+
+	Fixsave now operates for all install sizes. You may be requested
+to insert your CD-ROM when running Fixsave. Please make sure that the
+CD-ROM's drive letter is the same as when you installed the game.
+
+HOW TO USE FIXSAVE:
+
+	When you run fixsave, you will be provided a list of the 6 save
+games that you currently have. When you pick one, it will analyize various
+parts inside your save game and notify you when it finds something wrong
+while it repairs it. Sometimes, a quest will be found to be damaged and it
+will have to be removed. However, most of the time, your game will be
+repaired with no noticable changes.
+
+NOTE:	Because fixsave backs up your game before it attempts to repair it,
+do NOT try to run the repair utility more than once on a particular game
+between gaming sesions. Running fixsave more than once will NOT improve its
+chances of being fixed. Plus, your original save game will be overwritten with
+the newly modified one. This could prevent you from being able to repair it later
+with a more enchanced version of fixsave designed to deal with your specific
+problem.
+
+WHAT FIXSAVE FIXES:
+
+	In order to know when to use fixsave, a detailed list of what
+the program can repair is described below.
+
+*	All versions - If you are unable to find the dungeon that contains
+	the Dust of Restful Death on the Isle of Balefira, fixsave will
+	activate it for you. If fixsave reports "NOT ACTIVE", it does
+	not mean your game is damaged. It just means that the quest is
+	not running therefore, there is nothing to activate.
+
+*	Pre 1.02.177 - Quests that failed to find a particular person
+	it needed would would improperly create a person to use instead.
+	This caused an invalid quest link to occurr. Fixsave will remove
+	those quests that have this problem.
+
+*	Pre 1.03.179 - Quest monsters were not having their items properly
+	tagged to the quest. When the quest terminated, any items remaining
+	in the world (Like the ones picked up by the user) would become
+	invalid quest objects. Thus the invalid quest object error when
+	trying to load a game suffering from this problem. Fixsave will
+	remove the quest information.
+
+*	Pre 1.04.191 - 6 main story quests were found to illegally share 3
+	locations. This would cause problems when a second quest was started
+	that tried to use a location already involved in another quest. An
+	invalid quest map id error would be generated. If you have a game
+	saved before you do the following:
+		* Give the painting to Queen Akorithi (!)
+		* Give the Dust of Restful Death to Medora
+		* Give the Unicorn Horn to Medora
+		* Give the Jewelry to Mynisera.
+		* Get sent to Shedungent by Queen Abuk-i.
+
+	Running fixsave on these games will prevent the invalid quest map ID
+	crash while saving from happening.
+
+(!)	NOTE: You will need patch v1.04.191 or later before giving the
+	painting in order to be 100% sure that this invalid map id problem
+	will not happen.
+
+*	Pre 1.04.191 - Sometimes the faction information for a main story
+	character is deleted. This would cause nothing to happen when you
+	clicked on the NPC. Fixsave will restore this information so that
+	the person will talk to you again.
+
+*	Pre 1.04.191 - Objects were found to sometimes not be properly
+	released from a quest. The item was no longer marked for a quest,
+	but still linked into the system. This would cause a wide range
+	of problems. Fixsave will remove the remaining quest information
+	from the objects.
+
+*	Pre 1.05.195 - For people having 113 crashes after using items
+	in their inventory, (which includes buying and selling of items)
+	fixsave will repair those games.
+
+*	Pre 1.05.195 - Some objects are found to be misreported as quests.
+	This will cause both Daggerfall 1.04.191 and fixsave to crash when
+	loading a save game. Daggerfall has been modified to ignore this
+	problem and fixsave will return the object back to its original
+	state.
+
+*	Pre 1.05.195 - More problems with the invalid quest map id have
+	been fixed. Stronger logic code has been added to deal with this
+	problem.
+
+*	Pre 1.05.195 - A change done to the "Soul of a Lich" quest, caused
+	the game to crash in a special instance when you killed the lich.
+	Fixsave will allow you to kill the lich and continue the game.
+
+*	Pre 1.05.195 - Fixsave will allow people who turned down the
+	painting quest in the game to take the quest after all. This will
+	allow them to finish the game.
+
+*	Pre 1.05.195 - A serious bug was located in the game that would
+	cause your items to disspear from the inventory screen. This would
+	also cause the inventory screen to crash when you tried to view
+	a group of items. (Like the ones on your cart.). 1.05.195 will
+	no longer create this problem, but you must run fixsave to repair
+	the game if it suffers from this. Because this is a complicated
+	repair, it may not succeed at reconstructing your map file
+	properly.
+
+*	Pre 1.05.195 - A quest was found to be creating an invalid sprite
+	index for an NPC. So if you've been crashing with an error 520
+	while trying to enter a house for a quest, and fixsave says its
+	fixed an invalid sprite index, then you will be able to continue
+	in your quest.
+
+*	Pre 1.05.195 - The problems with people having wild variations
+	in their level advancement has been located. If fixsave sees that
+	you've lost your starting skill sum, it will repair it with a
+	precalculated average sum. Since it is not the sum you stared with,
+	the level you return to may not be the one you had before the
+	problem started.
+
+*	Pre 1.05.195 - For people who are getting map id errors after leaving
+	the starter dungeon, fixsave will repair your game so you can
+	continue your journey.
+
+*	Pre 1.06.200 - Another fix in the v1.05.195 version of the
+	"Soul of a Lich" quest activates the mummy to be sent after you.
+
+*	Pre 1.06.200 - Some people have reported losing their scarab
+	in the Soul of a Lich quest. If you've lost it, and have another
+	scarab in your possesion, this will attach the quest to that
+	item instead so you can complete the quest.
+
+*	Pre 1.07.213 - Another side effect of the serious bug found prior
+	to the 1.05.195 patch has been fixed. If you've lost all your quests
+	or the game crashes when you try to load it up, then this will fix
+	your problem.
+
+*	Pre 1.07.213 - An internal map memory leak was found in the game.
+	While the 1.07 patch will fix this problem, fixsave will remove
+	the stale objects from your game. If the game is running much
+	slower than it originally did, or if you've had to increase
+	OBJMEMSIZE to a value larger than 2000 and you don't have many
+	items, then this should fix your problem.
+
+*	Pre 1.07.213 - Due to a variety of other bugs in the game, some
+	data objects associated with your character are being deleted. Fixsave
+	now replaces them when they are missing. This will help you load
+	your game or prevent it from crashing when you're in your inventory
+	screen.
+
+*	Pre 1.07.213 - If your character has negative spell points, fixsave
+	will set it to 0. This does not work if your max spell points has
+	been set to a negative number.
+
+*	Pre 1.07.213 - Another method of activating the zombie in the
+	Soul of a Lich quest has been implemented.
+
+*	Pre 1.07.213 - A fix for the "Guard the Mage in a Trace" quest
+	was put in when it didn't terminate after the time limit expired.
+
+*	Post 1.07.213 - A repair for the problem of a person not accepting
+	the quest item has been added. This circumvents a problem with the
+	quest code in the game.
+
+*	Post 1.07.213 - An internal repair function inside Daggerfall
+	sometimes causes a saved game to exit with the error "Invalid
+	Character Data". If you suffer from this problem, fixsave will
+	repair your game so that it is once again loadable.
+
+*	Post 1.07.213 - Fixsave now replaces the lycanthrope spell if you've
+	lost the spell.
+	
+WHAT FIXSAVE DOES NOT FIX:
+
+	If both Daggerfall and fixsave crash while trying to load a game,
+then your game is corrupted beyond repair. Usually this happens with the
+invalid quest map id error prior to the 1.04.191 patch. Or any other time
+the game crashes while saving. Another sign that your game has been lost
+is when you get the error "You fall to the ground completely exhausted..."
+etc. after loading a game. This game is missing the file savetree.dat and
+no longer contains any map information associated with your character. This
+cannot be repaired as all of your character information is missing.
+
+	If fixsave does start its repair process and then has problems, then
+there is something I can do to help you. If your game is giving you problems
+and you used the repairs objects item maker advantage before the 1.03.179
+patch update, then fixsave will not be able to help you either. There is too
+much damage to be repaired. Fixsave is not able to deal with the case
+of a main story quest being corrupted either as it cannot remove that from
+your game.
+
+CONTACT INFORMATION:
+
+	If for some reason fixsave does not work as described above,
+feel free to contact me, Hal Bouma, at hal@bethsoft.com and I'll see what
+I can do to help you get your game back up and running. If you do not have
+email access, contact technical support and they'll forward your message
+on to me.
+	
+VERSION HISTORY:
+
+1.75	- Fixsave now replaces lost lycanthrope spells.
+
+1.74	- A side effect of an internal game correction in the 1.07 patch
+	  is now resolved by Fixsave.
+
+1.73	- Fixsave repairs problems due to lost quest links on items.
+
+1.72	- Fixsave updated to check the state of the savetree.dat file.
+
+1.71	- Fixsave updated to work with all install sizes.
+
+1.70	- Version updated to operate with the 1.07 patch.
+
+1.65	- The Zombie fix was updated for the 200 patch. A fix for N2 was
+	  added so that the quest was deleted when the time expired.
+
+1.64	- A internal corruption bug was fixed.
+
+1.63	- Fixsave now replaces lost data objects associated with your
+	  character when they are missing in your character. Fixsave also
+	  sets character's with negative spell points to 0.
+
+1.62	- Another side effect of the duplicate map identifiers was found
+	  and fixed. A map memory leak was found in the game and a
+	  removal process of these stale objects was added to fixsave.
+
+1.61	- An option for people to quit or continue when fixsave is unable
+	  to backup your save game. I will hopefully write a better routine
+	  in the future where the backup feature will work for everyone.
+
+1.60	- A fix for people who have lost their scarabs in the Soul of
+	  a Lich quest.
+
+1.52	- The backup savegame routine has been improved. If it didn't
+	  work for you before, it should work now. 
+
+1.51	- A problem with the v1.05.195 "Soul of a Lich" quest has been
+	  found where the zombie is not properly activated. Fixsave
+	  repairs that quest for you now.
+	  
+1.50	- Duplicate map identifers problem fixed. This would cause
+	  items in your inventory to dissapear and your character
+	  sheet to crash at odd times. An invalid sprite check for
+	  a quest was added. A fix for people who have level problems.
+	  The invalid map id when leaving the starter dungeon has
+	  been fixed as well.
+
+1.44	- Two main story quests have been addressed by fixsave. The
+	  "Soul of a Lich" crash when you kill the lich and the ability
+	  to change your mind about accepting the painting quest.
+
+1.43	- A game backup system has been added. More problems with the
+	  invalid quest map id error has been fixed.
+
+1.42 	- Fixes problems with equipment causing 113 crashes and catches
+	  one problem with corrupted objects.
+
+1.41	- First major release included with the Daggerfall patch program.
+
+
+
+

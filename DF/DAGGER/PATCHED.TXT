@@ -1,0 +1,540 @@
+Patch Fixes, version 1.07.213
+=============================
+
+FIXED:
+
+*	Fixmaps and Fixsave have been updated to work with any install size.
+	Fixmaps will require that the file MAPS.BSA be installed on your
+	hard drive as it is modified by the program. If this file is not
+	found, you will be given the option to copy it over.
+
+Patch Fixes, version 1.07.212
+=============================
+
+ADDED:
+
+*	Fixmaps - a patch program which will repair some duplicate town
+	name bugs in the world file. The executable version of the patch
+	will run this for you automatically. (It will still ask you if
+	you wish to perform this update.) As with fixsave, a medium
+	install is required in order for the program to work.
+
+*	Some of the development cheat keys have been released. To active
+	them, you will have to add a variable to your z.cfg file. The
+	variable is called CHEATMODE. You set it to 1. (Like the MAGICREPAIR
+	variable introduced in 1.06.200). The cheat codes are as follows:
+
+	1 - Sets your MaxSpeed to 1200 (6x the normal value).
+
+	CTRL-F1 - Activate all maps on the fast travel map. This can be
+	useful if somehow a location is no longer on the map.
+
+	CTRL-F4 - Invulnerable mode.
+
+	ALT-F11	- If you fall into the void, pressing this will take you back
+	to the previous object you were standing on. This can help you get
+	out of the void when you fall into it.
+
+	[ and ] - If you're in a dungeon, these keys will cycle you through
+	the various quest locations. Be careful though that you don't beam
+	into a location that is occupied by a monster. You will
+	be trapped inside the monster. Also, some locations are high enough
+	to pop you into the void when you beam to it. This can be useful if
+	you fall into the void or can't find the quest item you're looking
+	for.
+
+	- and = - These keys raise your reputation and your skills.
+
+FIXED:
+
+*	The 115 crash when clicking on people involved in quests has been
+	fixed. The cure werewolf quest was a quest often plagued by this
+	bug.
+
+*	An internal memory leak in the object system was fixed. This would
+	force you to increase your OBJMEMSIZE setting despite not having
+	very much in your inventory. This leak would also dramatically reduce
+	your game speed. Version 1.62 of Fixsave will cleanse your game
+	of the leftover data; this patch does this as well and prevents
+	it from happening again.
+
+*	The "Mynisera's Letters" quest that Abuki sends you on no longer
+	gives an outrageously inaccurate number of days to complete the
+	quest. The number now given is the actual amount of time you
+	have to complete the quest.
+
+*	A failure was found in the quest system to properly update the map
+	information of the game. This would cause quests to lose people or
+	locations making it impossible for you to complete it. This has been
+	fixed. Your quests should run much better now.
+
+*	Casting the Recall spell back to your anchor no longer fails when
+	you have the anchor set inside a locked house.
+
+*	You can now leave your items for repair in the shops and they will
+	remain there even when you leave the town.
+
+*	Items no longer disappear from your room at the tavern when you leave
+	the map and return later.
+
+*	Repair times has been fixed. They should be a little more reasonable
+	now in regards to the amount of work required on the item. I.E. doing
+	a total repair job on a suit of armor takes much longer than fixing
+	your little dagger.
+
+*	Azura's Star has been fixed. It should always trap souls now when
+	you have it equipped.
+
+*	The hit point modifier due to your endurance is now properly added
+	when you increase in level. The rest of level advancement works
+	as follows: you get between 1/2 to the number on the custom character
+	screen. This is different than what is stated in the manual. The manual
+	stated its between 1 and the number on the custom character screen.
+
+*	Getting your free house at the knightly order no longer crashes the
+	game.
+
+*	When you are infected by a werewolf, you now become a werewolf instead
+	of a wereboar.
+
+*	You can now use potions when you are silenced.
+
+*	Items that cast spells no longer get recorded as the last spell you
+	cast. This would cause you to cast a different spell when you hit
+	the recast spell.
+
+*	Pickpocketing monsters has been fixed. It is more consistent now.
+
+*	You will no longer start the game with negative spell points after
+	you created your character. The problem with the negative hit points
+	still exists however.
+
+*	The Restore Powers recipe has been fixed. You can make them in the
+	potion maker now.
+
+*	The game no longer gets trapped in an infinite loop when you try
+	to collect a reward while shape changed.
+
+*	You can now exit the level advancement screen when all of your
+	attributes are at 100.
+
+*	If your attributes become drained due to magic, you can now get them
+	healed at the temple you are a member of. Clicking on any member will
+	ask you if you wish to have your attributes restored. (Provided
+	you're high enough level to receive free healing at the temple).
+
+*	Some quests that caused the 116 crash have been fixed in the game.
+
+*	Your climbing skill increases properly now.
+
+*	When your skills are checked for advancement the game now uses
+	the original values, not the magically altered one. This means
+	that you will no longer become a Master prematurely.
+
+*	The crash that would report the error "failed internal check 1c"
+	has been fixed.
+
+*	A bug that would cause the game to terminate with error 2020 has been
+	fixed.
+
+*	The lockup at the Mages Guild when you were asking for non-member
+	guild quests has been fixed.
+
+*	Fixsave has been updated to version 1.70. Read fixsave.txt for what
+	changes have been made to it.
+
+Patch Fixes, version 1.06.200
+=============================
+
+FIXED:
+
+*	The zombie in the Soul of a Lich quest is now properly sent.
+	If you do not get the zombie when you're supposed to, run
+	the new FIXSAVE enclosed and it will activate it for you.
+
+*	A new error - "Insufficient texture memory" - has been added.
+	If you get this error, add a variable to your z.cfg file
+	called TEXTUREMEMORY and its parameter is given in kilobytes.
+	Set it to at least 5000 and the next time you run the game,
+	it shouldn't lock up at the location it did before. If you
+	have 8 megs of RAM, do not run with this setting for prolonged
+	periods of time as your VMM swapping will dramatically increase.
+
+*	The game can no longer trash your starting skill sum used
+	to determine your player level.
+
+*	The 113 crash when entering your character sheet has been
+	fixed. The 113 crash after resting has been fixed as well.
+
+*	A dungeon block was found to not have put an exit next to
+	where you entered. This has been fixed. Because of the way
+	dungeons are built, it may be placed behind an opened door.
+	If you do not see the exit and a door is nearby, close the door
+	and it should be there.
+
+*	Potions made in the potion maker with recipes should now be
+	properly labeled in the use item list.
+
+*	For people wishing to use the repair objects item maker advantage
+	on their magic items, a new z.cfg variable has been added.
+	It is called MAGICREPAIR and you set it to 1. When that is set,
+	the repair objects item maker advantage repairs your magic items.
+	If you wish to disable this ability, set MAGICREPAIR to 0.
+
+*	Illegally bashing down doors no longer gives you a revered legal
+	reputation when you are caught.
+
+*	The dungeon location that Azura sends you to now appears on your
+	fast travel map.
+
+*	Malacath's quest no longer causes the game to lock up.
+
+*	Daggerfall no longer tries to start main story quests while you
+	are on your ship. This would cause the game to freeze.
+
+*	A major fix has been done to the quest code. This fix would on rare
+	occasions cause the main story quest to shut down. It also prevented
+	the curse to be lifted from Daggerfall when you put King Lysandus's
+	soul to rest. Now when you complete this, a video will play and
+	Daggerfall will be safe once again.
+
+*	The crash in the Mantellan Crux with the message "code 108 not found
+	in dagger.snd" has been fixed.
+
+*	The potion maker no longer crashes when you switch between recipes
+	before mixing a potion.
+
+*	The wagon limit has been raised to 750 kg.
+
+*	The error #666 has been removed. The error reported instead of this
+	is the actual error the program intended to report.
+
+*	Fixsave has been updated to v1.61. Please read fixsave.txt for more
+	information on what changes have been made.
+
+Patch Fixes, version 1.05.195
+=============================
+
+FIXED:
+
+*	WARNING! Versions of Daggerfall prior to patch 195 may
+	randomly cause inventory items to vanish. Bethesda Softworks
+	strongly recommends that you upgrade to patch 195. Damaged
+	save games may be able to be repaired with the FIXSAVE.EXE
+	program included with this patch.
+
+*	Magic items & spells that enhance your skills and attributes no
+	longer deduct from your attributes & skills when you exceed 100.
+
+*	You can now train at temples that you are not a member of.
+
+*	You no longer get stuck inside houses when you exit when
+	you're running from Win95.
+
+*	Using the transfer health item maker advantage no longer
+	crashes the game while resting when there are no monsters
+	nearby.
+
+*	Going into your inventory when you have left items in the
+	tavern no longer crashes your game.
+
+*	Randomly created monsters in quests now always have their
+	items equipped. They should be more challenging now.
+
+*	After returning to Price Lohtun with news about his brother,
+	the quest is now properly removed from your logbook.
+
+*	Fixsave has been updated to v1.50. Please read fixsave.txt
+	for more information about this savegame repair utility.
+
+CLARIFIED:
+
+*	The Oghma Infininum book does not give you 50 attribute points.
+	It only gives you 30, despite what the manual, hint book, and
+	game related material state. It was always intended to only
+	give 30 points. The printed materials were in error.
+
+KNOWN BUGS:
+
+*	There is a bug in the game that will invalidate your starting skill
+	sum used for determining your user level. Fixsave will 'repair' this
+	in the sense that it will pick a new reasonable starting sum for you.
+	But it won't be what you initially had. Your level will return back
+	to something close to what you had before, if not the exact level.
+
+*	Although the problems with the game losing attribute/skill points
+	when you exceed the 100 limit through magic has been fixed, you
+	can still lose them when magic drains them below 0.
+
+Patch Fixes, version 1.04.191
+=============================
+
+ADDED:
+
+*	Fixsave, an utility program for repairing damaged saved games. In
+	order to run fixsave, you will need at least a medium install of the
+	game. Please read the file fixsave.txt for further information about
+	the program.
+
+FIXED:
+
+*	OBJMEMSIZE, as described below, now works properly.
+
+*	Thieves guilds now buys magic items.
+
+*	You can now sell your extra horses and carts in the general stores.
+
+*	Character creation advantages/disadvantages have been updated.
+
+*	Transfer spells now work properly.
+
+*	The Polymorph & Diminution effects have been removed from the spell
+	maker. Existing spells already made with these effects will continue
+	to operate as they do now. (Which is simply drain spell points.)
+
+*	The ability to bind multiple souls in the item maker has been removed.
+
+*	Streetwise and Etiquette skills are now tallied correctly.
+
+*	You will no longer get negative spell points.
+
+*	The "Master of BLANK" bug has been fixed.
+
+*	You can no longer recast the spell you casted before shapeshifting.
+
+*	The Create Item spell has been updated. It no longer creates items
+	that do not exist in the game.
+
+*	Equipping the Wabberjack no longer crashes the game.
+
+*	You can no longer get quests from people already involved in another
+	quest.
+
+*	You can no longer bind multiple health leeches in the item maker.
+
+*	Reputation is now calculated properly for the guilds. You should no
+	longer get kicked out for completing a quest.
+
+*	Starting a spell name with $ and ! no longer reduces the spell cost.
+
+*	Daggerfall no longer reboots for Ensoniq VIVO Soundscape users.
+
+*	Your rewards will no longer be labeled as BLANK.
+
+*	A crash bug that can happen during fast traveling has been removed.
+
+*	Vampire cult quests and the cure quest are now given more often.
+
+*	You can only join one temple and knightly order now.
+
+*	Clicking on Medora will no longer crash the game with error 115.
+
+*	The Old Ways Book no longer crashes the game.
+
+*	The detect spells now operate in full screen mode.
+
+*	Arrows no longer wrap around to 0 when you get more than 200 of them.
+
+*	You can now identify items when the holiday allows it.
+
+*	The cost to cast spell when buying spells now reflects the caster's
+	abilities.
+
+*	Clicking on the shelves in the Mages Guild and then bringing up your
+	spell book no longer locks the game up.
+
+*	You can now give the totem to King Gothryd.
+
+*	The Knights Of The Raven buildings in Dwynnen are now properly marked.
+
+*	The crash when clicking on "Where is - people" has been fixed. This
+	will help people on the mummy finger quest.
+
+*	A crash bug regarding finding map locations has been fixed.
+
+*	Some cases where people would not talk to you have been fixed.
+	This mainly deals with main story quests.
+
+*	The wagon weight limit has been reduced to 500 kgs. and the ability
+	to overload the wagon has been removed.
+
+*	A crash bug dealing with getting out of jail has been fixed.
+
+*	Hircine's Ring now only works for people infected with lycanthropy.
+	It allows you to shapeshift without having to kill the innocent.
+
+*	While Morgiah gives you one month to deliver the letter to the King
+	of Worms, in reality you only had 2-3 weeks. If you took longer than
+	that, the main story quest would stall because the next quest was
+	not started. v1.04.191 will start the next quest if this happened.
+
+*	The bug where instead of having to pay money to summon Daedra, you
+	get paid money has been fixed. You will no longer get paid to
+	do this.
+
+*	Having more than 63 soul gems no longer crashes the item maker.
+
+*	Repairs objects in the item maker no longer repairs magic items.
+
+*	If a quest has a pending letter to deliver, it will force the
+	delivery before you fast travel from a city. It used to give it
+	to you after a random amount of time while in an inhabited area.
+	This would sometimes cause people to never get the letters in time.
+	This will help fix the "I got the letter, but its not in my inventory" bug.
+
+*	When you return from delivering Morgiah's letter to the King of Worms,
+	the log entry is now properly removed from your quest. For people who
+	already suffer from this problem, do not worry. There is nothing wrong
+	with your game.
+
+*	Witches will no longer try to give inappropriate quests that will crash
+	the game.
+
+KNOWN BUGS:
+
+*	You can not bind dragonling souls in the item maker.
+
+*	Item weights in the wagon are incorrectly marked as 0 kg.
+
+*	Saving the game while in a store will cause the shelves to be
+	empty when you reload the game. You will have to leave the store,
+	enter another store, then go back into the first store to have
+	the shelves restock.
+
+*	People have reported that when they kill the lich as requested by
+	the King of Worms, the quest terminates there. Don't worry. There
+	is nothing wrong with your game. After you received the quest, you
+	clicked on the King of Worms again, so the flag where you give the
+	scarab back is set to true. When you kill the lich, that flag is
+	set to true. The win-quest flag is true when the two previously
+	mentioned flags are both true. So you get the reward text, the 
+	magic item without having to go back. Just be happy it saved
+	you the trip back.
+
+Patch Fixes, version 1.03.179
+=============================
+
+FIXED:
+
+*	More fixes have been done to quests. Many will crash less often now.
+
+*	Traveling to and from your ship and entering/leaving the town with
+	your house in it no longer crashes the game.
+
+*	Monsters's inventories are now properly reset when you approach it.
+	This caused a 104 crash in the game.
+
+*	For 16 meg users, the amount of map space has been increased.
+	If you still get the error UNABLE TO ALLOCATE OBJECT MEMORY
+	enter in your z.cfg file a new entry called ObjMemSize and 
+	give it a value of more than 2000. This will increase the
+	amount of space maps get as well so you can continue playing.
+	If you are an 8 meg machine, try leaving the map you are
+	in and re-entering as well as reducing the number of items
+	your player has. (in the wagon, on the ship, in the house).
+
+*	The repairs object advantage now works properly.
+
+*	New daedric cuirasses are no longer broken.
+
+*	Houses you buy are no longer rotated improperly.
+
+*	Several quests now unlock the doors properly.
+
+*	Bad dagtext entries no longer crash the game. You will still get
+	the message though.
+
+*	Using a nearly broken magic item no longer crashes the game.
+
+*	The cure poison spell works properly.
+
+Patch Fixes, version 1.02.177
+=============================
+
+FIXED:
+
+*	Players with Cyrix chips should no longer experience crashes
+	in the game.
+
+*	Quests that are begun with this patch version should no
+	longer generate "invalid quest object" errors. However, older
+	saved games may still have corrupted quest objects that will
+	still cause errors.
+
+*	Lycanthropy no longer limits hit points when a player
+	advances in level.
+
+Patch Fixes, version 1.01.175
+=============================
+
+NOTE:	Games saved with this patch cannot be loaded in the version 1.0
+	that was first shipped. However, games saved with version 1.0
+	can be loaded into this patched version.
+
+FIXED:
+
+*	Archery works in menu mode as well as in full screen mode.
+
+*	The Dark Brotherhood no longer offers the same quests as the
+	Fighters Guild.
+
+*	If you break into a store and steal everything, the shelves are
+	now restocked properly.
+
+*	Repairing items no longer causes the game to crash during a save.
+
+*	The consequences of defaulting on a bank loan are now more severe.
+
+*	The cure lycanthropy quest no longer causes the game to crash.
+
+*	The cure vampirism quests now work properly.
+
+*	Disadvantages in custom character creation can no longer be selected
+	multiple times.
+
+*	The skeleton no longer walks backwards.
+
+*	Sleeping on a ship or in your own house no longer summons the city
+	guards.
+
+*	Several side quests and a couple of the main quests now work better.
+
+*	Character status correctly reports when a character has been poisoned.
+
+*	Giving the Totem to NPCs that offered artifacts no longer causes the
+	game to crash.
+
+*	The quest to find the lich dust for King Gortwog displays the dungeon
+	location properly.
+
+*	Encumbrance is reported correctly when items are held in houses,
+	wagons, and ships.
+
+*	Magical item effects can no longer be recast with the spell recasting
+	key.
+
+*	The game can be saved while aboard a ship.
+
+*	Characters can no longer rest while over water.
+
+*	Items stored in your house or ship are no longer available for use
+	away from those locations.
+
+*	Items can be safely left on your ship.
+
+*	Activating objects, such as levers, no longer causes a crash.
+
+*	Quest items are now colored green in the inventory screen.
+
+*	Vampires properly take damage in sunlight.
+
+*	The crash that caused the error "failed internal check c" has been
+	fixed. If you get this error, please leave the dungeon you're in. The
+	next time you reenter the dungeon, it will not happen again.
+
+*	Magical items cannot be repaired in shops, even though early versions
+	of the manual and the hint book say they can. This was a feature that
+	turned out to be highly unbalancing late in our beta testing process.
+
+
+
